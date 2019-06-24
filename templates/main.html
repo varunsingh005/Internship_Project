@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('file');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>Bike Usage Model</title>
+</head>
+<form action="http://localhost:5000/" method="POST"  enctype = "multipart/form-data">  
+         <input type = "file"   />
+         <img id="file"/>
+       
+         <input type = "submit"/>
+      </form>
+<br>
+
+<div class="result" align="center">
+    {% if result %}             
+        <br> image uploaded
+          <h1> {{result}}</h1>
+
+    {% endif %}
+</div>
+</html>
